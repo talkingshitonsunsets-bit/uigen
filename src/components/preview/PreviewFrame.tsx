@@ -104,9 +104,9 @@ export function PreviewFrame() {
         <div
           className="h-full flex items-center justify-center p-8 relative overflow-hidden"
           style={{
-            backgroundColor: "#f7f8fa",
-            backgroundImage: "radial-gradient(circle, #e2e4ea 1px, transparent 1px)",
-            backgroundSize: "28px 28px",
+            backgroundColor: "#f5f5f9",
+            backgroundImage: "radial-gradient(circle, rgba(139,92,246,0.12) 1px, transparent 1px)",
+            backgroundSize: "24px 24px",
           }}
         >
           {/* Large ambient radial glow behind center */}
@@ -155,8 +155,8 @@ export function PreviewFrame() {
       <div
         className="h-full flex items-center justify-center p-8"
         style={{
-          backgroundColor: "#f7f8fa",
-          backgroundImage: "radial-gradient(circle, #d1d5db 1px, transparent 1px)",
+          backgroundColor: "#f5f5f9",
+          backgroundImage: "radial-gradient(circle, rgba(139,92,246,0.12) 1px, transparent 1px)",
           backgroundSize: "24px 24px",
         }}
       >

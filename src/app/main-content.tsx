@@ -42,7 +42,7 @@ export function MainContent({ user, project }: MainContentProps) {
 
             {/* ── Left Panel — Chat (dark) ── */}
             <ResizablePanel id="chat-panel" defaultSize={35} minSize={25} maxSize={50}>
-              <div className="h-full flex flex-col" style={{background: "linear-gradient(160deg, #12111a 0%, #0d0d14 50%, #0f1117 100%)"}}>
+              <div className="h-full flex flex-col" style={{background: "linear-gradient(160deg, #12111a 0%, #0d0d14 50%, #0f1117 100%)", boxShadow: "6px 0 32px rgba(0,0,0,0.5), 1px 0 0 rgba(139,92,246,0.08)"}}>
 
                 {/* Brand header */}
                 <div className="h-14 flex items-center justify-between px-5 flex-shrink-0 relative" style={{borderBottom: "1px solid rgba(255,255,255,0.055)"}}>
@@ -87,10 +87,10 @@ export function MainContent({ user, project }: MainContentProps) {
 
             {/* ── Right Panel — Preview/Code (light) ── */}
             <ResizablePanel id="preview-panel" defaultSize={65}>
-              <div className="h-full flex flex-col bg-white">
+              <div className="h-full flex flex-col" style={{background: "#f9f9fc"}}>
 
                 {/* Toolbar */}
-                <div className="h-14 px-5 flex items-center justify-between flex-shrink-0 bg-white" style={{borderBottom: "1px solid #ebebed", boxShadow: "0 1px 3px rgba(0,0,0,0.04)"}}>
+                <div className="h-14 px-5 flex items-center justify-between flex-shrink-0 relative" style={{background: "#ffffff", borderBottom: "1px solid rgba(0,0,0,0.07)", boxShadow: "0 1px 4px rgba(0,0,0,0.04)"}}>
                   <Tabs
                     id="main-tabs"
                     value={activeView}
@@ -127,10 +127,10 @@ export function MainContent({ user, project }: MainContentProps) {
                     <div
                       className="h-full relative"
                       style={{
-                        backgroundColor: "#f7f8fa",
+                        backgroundColor: "#f5f5f9",
                         backgroundImage:
-                          "radial-gradient(circle, #e2e4ea 1px, transparent 1px)",
-                        backgroundSize: "28px 28px",
+                          "radial-gradient(circle, rgba(139,92,246,0.12) 1px, transparent 1px)",
+                        backgroundSize: "24px 24px",
                       }}
                     >
                       {/* Corner accent decorations */}
@@ -147,7 +147,7 @@ export function MainContent({ user, project }: MainContentProps) {
                       className="h-full"
                     >
                       <ResizablePanel id="file-tree-panel" defaultSize={30} minSize={20} maxSize={50}>
-                        <div className="h-full bg-[#fafafa] border-r border-neutral-100">
+                        <div className="h-full border-r" style={{background: "#f9f9fc", borderColor: "rgba(0,0,0,0.06)"}}>
                           <FileTree />
                         </div>
                       </ResizablePanel>
@@ -156,7 +156,7 @@ export function MainContent({ user, project }: MainContentProps) {
                         className="w-px bg-neutral-100 hover:bg-violet-400/50 transition-colors duration-200"
                       />
                       <ResizablePanel id="code-editor-panel" defaultSize={70}>
-                        <div className="h-full bg-white">
+                        <div className="h-full" style={{background: "#fafafa"}}>
                           <CodeEditor />
                         </div>
                       </ResizablePanel>
