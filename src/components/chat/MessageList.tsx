@@ -13,7 +13,7 @@ interface MessageListProps {
 
 export function MessageList({ messages, isLoading }: MessageListProps) {
   return (
-    <div className="flex flex-col px-4 py-5 space-y-5">
+    <div className="flex flex-col px-4 py-4 space-y-4">
       {messages.map((message) => (
         <div
           key={message.id || message.content}
@@ -47,9 +47,9 @@ export function MessageList({ messages, isLoading }: MessageListProps) {
                 boxShadow: "0 4px 16px rgba(124,58,237,0.25), inset 0 1px 0 rgba(255,255,255,0.15)",
                 color: "white",
               } : {
-                background: "rgba(255,255,255,0.055)",
-                border: "1px solid rgba(255,255,255,0.09)",
-                boxShadow: "inset 0 1px 0 rgba(255,255,255,0.07)",
+                background: "rgba(255,255,255,0.07)",
+                border: "1px solid rgba(255,255,255,0.1)",
+                boxShadow: "0 2px 12px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.08)",
               }}
             >
               {/* Top shimmer on AI bubble */}
@@ -86,7 +86,7 @@ export function MessageList({ messages, isLoading }: MessageListProps) {
                         );
                       case "step-start":
                         return partIndex > 0 ? (
-                          <hr key={partIndex} className="my-3 border-white/10" />
+                          <div key={partIndex} className="my-2.5 h-px" style={{background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent)"}} />
                         ) : null;
                       default:
                         return null;
