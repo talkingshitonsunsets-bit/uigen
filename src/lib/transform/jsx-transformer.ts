@@ -318,11 +318,15 @@ export function createPreviewHTML(
     body {
       margin: 0;
       padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
     #root {
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      min-height: 100vh;
+      overflow-x: hidden;
     }
     .error-boundary {
       color: red;

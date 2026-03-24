@@ -32,15 +32,30 @@ export function MessageList({ messages, isLoading }: MessageListProps) {
           )}
 
           <div className={cn(
-            "flex flex-col gap-1.5 max-w-[82%]",
+            "flex flex-col gap-1.5 max-w-[85%]",
             message.role === "user" ? "items-end" : "items-start"
           )}>
-            <div className={cn(
-              "rounded-2xl px-4 py-3 text-[13.5px] leading-relaxed",
-              message.role === "user"
-                ? "bg-gradient-to-br from-violet-600 to-indigo-700 text-white rounded-tr-md shadow-lg shadow-violet-500/20"
-                : "bg-white/[0.06] text-white/85 border border-white/[0.08] rounded-tl-md"
-            )}>
+            <div
+              className={cn(
+                "rounded-2xl px-4 py-3 text-[13px] leading-relaxed relative overflow-hidden",
+                message.role === "user"
+                  ? "rounded-tr-sm"
+                  : "rounded-tl-sm"
+              )}
+              style={message.role === "user" ? {
+                background: "linear-gradient(135deg, #7c3aed 0%, #6d28d9 50%, #4f46e5 100%)",
+                boxShadow: "0 4px 16px rgba(124,58,237,0.25), inset 0 1px 0 rgba(255,255,255,0.15)",
+                color: "white",
+              } : {
+                background: "rgba(255,255,255,0.055)",
+                border: "1px solid rgba(255,255,255,0.09)",
+                boxShadow: "inset 0 1px 0 rgba(255,255,255,0.07)",
+              }}
+            >
+              {/* Top shimmer on AI bubble */}
+              {message.role === "assistant" && (
+                <div className="absolute top-0 left-4 right-4 h-px" style={{background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent)"}} />
+              )}
               {message.parts ? (
                 <>
                   {message.parts.map((part, partIndex) => {

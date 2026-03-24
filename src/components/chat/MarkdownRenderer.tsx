@@ -42,16 +42,31 @@ export function MarkdownRenderer({
             );
           },
           p: ({ children, ...props }) => (
-            <p className="mb-2 last:mb-0" {...props}>{children}</p>
+            <p className="mb-1.5 last:mb-0 text-[13px] leading-relaxed" style={{color: "rgba(255,255,255,0.75)"}} {...props}>{children}</p>
           ),
           ul: ({ children, ...props }) => (
-            <ul className="my-2 space-y-1" {...props}>{children}</ul>
+            <ul className="my-1.5 space-y-1 list-none pl-0" {...props}>{children}</ul>
+          ),
+          ol: ({ children, ...props }) => (
+            <ol className="my-1.5 space-y-1 list-none pl-0 counter-reset-item" {...props}>{children}</ol>
           ),
           li: ({ children, ...props }) => (
-            <li className="leading-relaxed" {...props}>{children}</li>
+            <li className="flex items-start gap-2 text-[13px] leading-relaxed" style={{color: "rgba(255,255,255,0.7)"}} {...props}>
+              <span className="mt-[7px] w-1 h-1 rounded-full flex-shrink-0" style={{background: "rgba(139,92,246,0.7)"}} />
+              <span>{children}</span>
+            </li>
           ),
           strong: ({ children, ...props }) => (
-            <strong className="font-semibold text-white/95" {...props}>{children}</strong>
+            <strong className="font-semibold not-italic" style={{color: "rgba(255,255,255,0.95)"}} {...props}>{children}</strong>
+          ),
+          h1: ({ children, ...props }) => (
+            <h1 className="text-[15px] font-bold mb-2 mt-3 first:mt-0" style={{color: "rgba(255,255,255,0.95)"}} {...props}>{children}</h1>
+          ),
+          h2: ({ children, ...props }) => (
+            <h2 className="text-[14px] font-semibold mb-1.5 mt-2.5 first:mt-0" style={{color: "rgba(255,255,255,0.9)"}} {...props}>{children}</h2>
+          ),
+          h3: ({ children, ...props }) => (
+            <h3 className="text-[13px] font-semibold mb-1 mt-2 first:mt-0" style={{color: "rgba(255,255,255,0.85)"}} {...props}>{children}</h3>
           ),
         }}
       >
