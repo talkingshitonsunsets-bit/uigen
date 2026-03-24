@@ -98,7 +98,18 @@ export function HeaderActions({ user, projectId }: HeaderActionsProps) {
         <div className="flex gap-2">
           <button
             onClick={handleSignInClick}
-            className="h-8 px-3.5 rounded-lg text-[13px] font-medium text-neutral-500 hover:text-neutral-900 hover:bg-neutral-100 transition-all duration-150"
+            className="h-8 px-3.5 rounded-lg text-[13px] font-medium transition-all duration-150"
+            style={{color: "rgba(100,100,120,0.8)", border: "1px solid rgba(0,0,0,0.08)"}}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLElement).style.color = "#4c1d95";
+              (e.currentTarget as HTMLElement).style.border = "1px solid rgba(139,92,246,0.3)";
+              (e.currentTarget as HTMLElement).style.background = "rgba(139,92,246,0.05)";
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLElement).style.color = "rgba(100,100,120,0.8)";
+              (e.currentTarget as HTMLElement).style.border = "1px solid rgba(0,0,0,0.08)";
+              (e.currentTarget as HTMLElement).style.background = "transparent";
+            }}
           >
             Sign In
           </button>

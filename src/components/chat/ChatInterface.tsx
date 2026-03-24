@@ -8,10 +8,12 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { useChat } from "@/lib/contexts/chat-context";
 
 const SUGGESTIONS = [
-  { icon: Layers, label: "Pricing card" },
-  { icon: MousePointer2, label: "Auth form" },
-  { icon: LayoutTemplate, label: "Dashboard stats" },
+  { icon: Layers, label: "Pricing card", sub: "3 tiers with toggle" },
+  { icon: MousePointer2, label: "Auth form", sub: "Sign in with social" },
+  { icon: LayoutTemplate, label: "Dashboard stats", sub: "KPI grid with charts" },
 ];
+
+const TECH_TAGS = ["React", "Tailwind CSS", "shadcn/ui", "TypeScript"];
 
 function syntheticChange(value: string): React.ChangeEvent<HTMLTextAreaElement> {
   const el = document.createElement("textarea");
@@ -67,40 +69,50 @@ export function ChatInterface() {
               <p className="text-[10px] font-semibold tracking-[0.15em] uppercase" style={{color:"rgba(255,255,255,0.2)"}}>Quick start</p>
               <div className="h-px flex-1" style={{background: "linear-gradient(90deg, rgba(139,92,246,0.2), transparent)"}} />
             </div>
-            {SUGGESTIONS.map(({ icon: Icon, label }) => (
+            {SUGGESTIONS.map(({ icon: Icon, label, sub }) => (
               <button
                 key={label}
                 onClick={() => handleInputChange(syntheticChange(`Create a ${label.toLowerCase()} component`))}
-                className="group flex items-center justify-between gap-2.5 px-3.5 py-2.5 rounded-xl text-[13px] font-medium transition-all duration-200 text-left relative overflow-hidden"
+                className="group flex items-center justify-between gap-2.5 px-3.5 py-2.5 rounded-xl transition-all duration-200 text-left relative overflow-hidden"
                 style={{
                   background: "rgba(255,255,255,0.03)",
                   border: "1px solid rgba(255,255,255,0.07)",
-                  color: "rgba(255,255,255,0.5)",
                 }}
                 onMouseEnter={e => {
                   (e.currentTarget as HTMLElement).style.background = "rgba(139,92,246,0.12)";
                   (e.currentTarget as HTMLElement).style.border = "1px solid rgba(139,92,246,0.3)";
-                  (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.9)";
-                  (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 16px rgba(139,92,246,0.12), inset 0 0 0 1px rgba(139,92,246,0.15)";
+                  (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 16px rgba(139,92,246,0.12)";
                 }}
                 onMouseLeave={e => {
                   (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.03)";
                   (e.currentTarget as HTMLElement).style.border = "1px solid rgba(255,255,255,0.07)";
-                  (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.5)";
                   (e.currentTarget as HTMLElement).style.boxShadow = "none";
                 }}
               >
                 {/* Left accent bar */}
                 <div className="absolute left-0 top-2 bottom-2 w-0.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" style={{background: "linear-gradient(180deg, rgba(139,92,246,0.8), rgba(99,102,241,0.8))"}} />
-                <span className="flex items-center gap-2.5">
+                <span className="flex items-center gap-2.5 min-w-0">
                   <span className="flex items-center justify-center w-6 h-6 rounded-lg flex-shrink-0" style={{background: "rgba(139,92,246,0.18)", border: "1px solid rgba(139,92,246,0.2)"}}>
                     <Icon className="h-3 w-3" style={{color:"rgba(196,181,253,0.95)"}} />
                   </span>
-                  {label}
+                  <span className="min-w-0">
+                    <span className="block text-[13px] font-medium" style={{color: "rgba(255,255,255,0.65)"}}>{label}</span>
+                    <span className="block text-[11px] mt-0.5" style={{color: "rgba(255,255,255,0.25)"}}>{sub}</span>
+                  </span>
                 </span>
-                <ArrowRight className="h-3 w-3 opacity-0 group-hover:opacity-60 transition-all duration-200 group-hover:translate-x-0.5" style={{color:"rgba(139,92,246,0.8)"}} />
+                <ArrowRight className="h-3 w-3 flex-shrink-0 opacity-0 group-hover:opacity-60 transition-all duration-200 group-hover:translate-x-0.5" style={{color:"rgba(139,92,246,0.8)"}} />
               </button>
             ))}
+
+            {/* Tech stack tags — fills dead space, shows supported stack */}
+            <div className="flex items-center gap-1.5 mt-3 flex-wrap justify-center pt-1">
+              {TECH_TAGS.map(tag => (
+                <span key={tag} className="text-[10px] px-2 py-0.5 rounded-full font-medium"
+                  style={{background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)", color: "rgba(255,255,255,0.25)"}}>
+                  {tag}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       ) : (
