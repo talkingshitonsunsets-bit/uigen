@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell.exe -Command \"where.exe npm 2>&1; where.exe node 2>&1; Test-Path ''C:\\\\Program Files\\\\nodejs\\\\npm.cmd''; Test-Path ''C:\\\\Users\\\\Caton Brough\\\\AppData\\\\Roaming\\\\npm\\\\npm.cmd''\")",
+      "Bash(powershell.exe -Command \"& ''C:\\\\Program Files\\\\nodejs\\\\npm.cmd'' run setup\")",
+      "Bash(cmd.exe /c \"set PATH=C:\\\\Program Files\\\\nodejs;%PATH% && cd \"\"C:\\\\Users\\\\Caton Brough\\\\uigen\"\" && npm run setup 2>&1\")",
+      "Bash(export PATH=\"/c/Program Files/nodejs:$PATH\")",
+      "Bash(npm run:*)",
+      "Skill(update-config)",
+      "Skill(update-config:*)",
+      "Bash(cmd.exe /c \"taskkill /PID 13636 /F 2>&1\")",
+      "Bash(cmd.exe /c \"taskkill /PID 13636 /F\")",
+      "Bash(cmd.exe /c \"taskkill /PID 13636 /F & echo done\")",
+      "Bash(/c/Windows/System32/taskkill.exe /PID 13636 /F)",
+      "Bash(\"/c/Windows/System32/taskkill.exe\" //PID 13636 //F)"
+    ]
+  }
+}

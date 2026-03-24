@@ -82,16 +82,16 @@ export function ToolCallBadge({ tool }: ToolCallBadgeProps) {
   const { label, icon } = getToolLabel(tool.toolName, tool.args);
 
   return (
-    <div className="inline-flex items-center gap-1.5 mt-2 px-3 py-1.5 bg-neutral-50 rounded-lg text-xs border border-neutral-200">
+    <div className="inline-flex items-center gap-1.5 mt-2 px-2.5 py-1.5 bg-white/[0.05] rounded-lg text-[11px] border border-white/[0.08]">
       {isDone ? (
-        <div className="w-2 h-2 rounded-full bg-emerald-500 flex-shrink-0" />
+        <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0" />
       ) : (
-        <Loader2 className="w-3 h-3 animate-spin text-blue-600 flex-shrink-0" />
+        <Loader2 className="w-3 h-3 animate-spin text-violet-400 flex-shrink-0" />
       )}
       {icon && (
-        <span className="text-neutral-500 flex items-center">{icon}</span>
+        <span className="text-white/30 flex items-center">{icon}</span>
       )}
-      <span className="text-neutral-700">{label}</span>
+      <span className="text-white/50 font-mono tracking-tight">{label}</span>
     </div>
   );
 }
